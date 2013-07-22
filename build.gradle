@@ -1,0 +1,34 @@
+apply plugin: 'scala'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.scala-lang:scala-library:2.10.2'
+	compile 'org.apache.pdfbox:pdfbox:1.8.2'
+//	compile fileTree(dir: 'lib', include: '**/*.jar') // compiles with all jars in lib/
+}
+
+jar {
+	manifest {
+		attributes(
+			'Implementation-Version': '0.1',
+			'Main-Class': 'nz.co.rossphillips.thumbnailer.Main'
+		)
+	}
+	from {
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
+
+sourceSets {
+	main {
+		scala {
+			srcDirs = ['src']
+		}
+	}
+}
+
