@@ -1,23 +1,32 @@
 package nz.co.rossphillips.thumbnailer
 
-import nz.co.rossphillips.thumbnailer.thumbnailers.PDFBoxThumbnailer
+import nz.co.rossphillips.thumbnailer.thumbnailers._
 import java.io.FileInputStream
 import java.io.FileOutputStream
 
+
 object Main {
 	def main(args: Array[String]) {
-		println("Creating thumbnail...")
-		val thumbnailer = new PDFBoxThumbnailer
+		println("Creating thumbnails...")
 
-		val input = new FileInputStream("test.pdf")
-		val output = thumbnailer.generateThumbnail(input)
+		val pdfThumbnailer = new PDFThumbnailer
+		val imageThumbnailer = new ImageThumbnailer
+
+		val pdfInput = new FileInputStream("test.pdf")
+		val pdfOutput = pdfThumbnailer.generateThumbnail(pdfInput)
+		val pdfOutputStream = new FileOutputStream("pdf.png", false)
+		pdfOutputStream.write(pdfOutput)
+		pdfOutputStream.close
+		pdfInput.close
 		
-		println(output)
-		val outputStream = new FileOutputStream("test.png", false)
-		outputStream.write(output)
 		
-		//outputStream.close
-//		input.close
+		val imageInput = new FileInputStream("test.png")
+		val imageOutput = imageThumbnailer.generateThumbnail(imageInput)
+		val imageOutputStream = new FileOutputStream("png.png", false)
+		imageOutputStream.write(imageOutput)
+		imageOutputStream.close
+		imageInput.close
+		
 		
 		println("Finished!\n")
 	}
