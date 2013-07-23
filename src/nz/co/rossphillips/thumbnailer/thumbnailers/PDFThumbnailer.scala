@@ -17,7 +17,7 @@ import java.io.ByteArrayOutputStream
 
 class PDFThumbnailer extends Thumbnailer {
 
-	private val TRANSPARENT_WHITE = new Color(255, 255, 255, 0)
+	private val transparentWhite = new Color(255, 255, 255, 0)
 
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val document = PDDocument.load(input)
@@ -27,20 +27,13 @@ class PDFThumbnailer extends Thumbnailer {
 			ImageIO.write(bufferedImage, "PNG", output)
 		} else {
 			// TODO - handle this shit (if needed???)
-			println("BRO NEED TO IMPLEMENT THIS IN PDFBoxThumbnailer")
-			throw new Exception("BRO NEED TO IMPLEMENT THIS IN PDFBoxThumbnailer")
+			println("TODO - NEED TO IMPLEMENT THIS IN PDFThumbnailer")
+			throw new Exception("TODO - NEED TO IMPLEMENT THIS IN PDFThumbnailer")
 		}
 	}
 
-	override def generateThumbnail(input: InputStream): Array[Byte] = {
-		val output = new ByteArrayOutputStream
-		generateThumbnail(input, output)
-
-		val bytes = output.toByteArray
-		output.close
-		bytes
-	}
-
+	override def supportedContentTypes = Set("application/pdf")
+	
 	private def writeImageFirstPage(document: PDDocument, imageType: Int): BufferedImage = {
 		val pages = document.getDocumentCatalog.getAllPages
 		val page = pages.get(0).asInstanceOf[PDPage]
@@ -54,15 +47,15 @@ class PDFThumbnailer extends Thumbnailer {
 		val widthPt = mBox.getWidth
 		val heightPt = mBox.getHeight
 
-		val widthPx = thumbWidth             // Math.round(widthPt * scaling);
-		val heightPx = thumbHeight           // Math.round(heightPt * scaling);
-		val scaling = thumbWidth / widthPt   // resolution / 72.0F;
+		val widthPx = thumbWidth
+		val heightPx = thumbHeight
+		val scaling = thumbWidth / widthPt
 
 		val pageDimension = new Dimension(widthPt.toInt, heightPt.toInt)
 
 		val retval = new BufferedImage(widthPx, heightPx, imageType)
 		val graphics = retval.getGraphics.asInstanceOf[Graphics2D]
-		graphics.setBackground(TRANSPARENT_WHITE)
+		graphics.setBackground(transparentWhite)
 		graphics.clearRect(0, 0, retval.getWidth, retval.getHeight)
 		graphics.scale(scaling, scaling)
 

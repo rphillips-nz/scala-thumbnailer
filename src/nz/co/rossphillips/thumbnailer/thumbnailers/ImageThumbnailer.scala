@@ -16,13 +16,10 @@ class ImageThumbnailer extends Thumbnailer {
 		ImageIO.write(resized, "PNG", output)
 	}
 
-	override def generateThumbnail(input: InputStream): Array[Byte] = {
-		val output = new ByteArrayOutputStream
-		generateThumbnail(input, output)
-		
-		val bytes = output.toByteArray
-		output.close
-		bytes
-	}
-
+	override def supportedContentTypes = Set(
+		"image/png",
+		"image/jpeg",
+		"image/gif"
+		// TODO - add the rest
+	)
 }
