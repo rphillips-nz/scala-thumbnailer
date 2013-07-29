@@ -22,6 +22,7 @@ class PDFThumbnailer extends Thumbnailer {
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val document = PDDocument.load(input)
 		val bufferedImage = writeImageFirstPage(document, BufferedImage.TYPE_INT_RGB)
+		document.close
 
 		if (bufferedImage.getWidth == width) {
 			ImageIO.write(bufferedImage, "PNG", output)

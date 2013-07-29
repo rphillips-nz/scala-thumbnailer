@@ -4,6 +4,7 @@ apply plugin: 'eclipse'
 apply plugin: 'application'
 
 mainClassName = 'nz.co.rossphillips.thumbnailer.Main'
+version = 0.1
 
 repositories {
 	mavenCentral()
@@ -23,7 +24,7 @@ dependencies {
 jar {
 	manifest {
 		attributes(
-			'Implementation-Version': 0.1,
+			'Implementation-Version': version,
 			'Main-Class': 'nz.co.rossphillips.thumbnailer.Main'
 		)
 	}
