@@ -1,27 +1,31 @@
 apply plugin: 'scala'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'nz.co.rossphillips.thumbnailer.Main'
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	compile 'org.scala-lang:scala-library:2.10.2'
-	compile 'org.apache.pdfbox:pdfbox:1.8.2'
-	compile 'org.imgscalr:imgscalr-lib:4.2'
-	compile 'commons-io:commons-io:2.4'
+	compile(
+		'org.scala-lang:scala-library:2.10.2',
+		'org.apache.pdfbox:pdfbox:1.8.2',
+		'org.imgscalr:imgscalr-lib:4.2',
+		'commons-io:commons-io:2.4',
+		'org.ostermiller:utils:1.07.00',
+		'fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.pdf:1.0.2'
+	)
 }
 
 jar {
 	manifest {
 		attributes(
-			'Implementation-Version': '0.1',
+			'Implementation-Version': 0.1,
 			'Main-Class': 'nz.co.rossphillips.thumbnailer.Main'
 		)
-	}
-	from {
-		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 	}
 }
 
