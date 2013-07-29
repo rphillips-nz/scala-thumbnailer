@@ -6,3 +6,5 @@
 .cache
 /build
 /bin
+/output
+

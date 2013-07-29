@@ -64,11 +64,13 @@ class PDFThumbnailer extends Thumbnailer {
 
 		try {
 			val rotation = page.findRotation
+
 			if (rotation == 90 || rotation == 270) {
 				val w = retval.getWidth
 				val h = retval.getHeight
 				val rotatedImg = new BufferedImage(w, h, retval.getType)
 				val g = rotatedImg.createGraphics
+
 				g.rotate(Math.toRadians(rotation), w / 2, h / 2)
 				g.drawImage(retval, null, 0, 0)
 			}

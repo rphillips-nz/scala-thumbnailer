@@ -5,8 +5,8 @@ import java.io.OutputStream
 import java.io.ByteArrayOutputStream
 
 trait Thumbnailer {
-	var width = 120
-	var height = 170
+	var width = 160
+	var height = 200
 
 	def generateThumbnail(input: InputStream, output: OutputStream)
 

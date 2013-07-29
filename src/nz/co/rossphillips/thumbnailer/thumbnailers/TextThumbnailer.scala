@@ -27,8 +27,6 @@ class TextThumbnailer extends Thumbnailer {
 		g.fillRect(0, 0, width, height)
 		g.setColor(Color.BLACK)
 		g.setFont(font)
-		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON)
-		g.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON)
 
 		drawStringWrapped(g, text, bounds.getX.toInt, -bounds.getY.toInt, width, height)
 		g.dispose
@@ -36,9 +34,15 @@ class TextThumbnailer extends Thumbnailer {
 		ImageIO.write(image, "PNG", output)
 	}
 
-	override def supportedContentTypes: Set[String] = Set(
-		"text/plain"
-		// TODO - add the rest
+	override def supportedContentTypes = Set(
+		"text/plain",
+		"text/cmd",
+		"text/css",
+		"text/csv",
+		"text/html",
+		"text/javascript",
+		"text/vcard",
+		"text/xml"
 	)
 
 	def drawStringWrapped(g: Graphics2D, text: String, startX: Int, startY: Int, width: Int, height: Int) {
