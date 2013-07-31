@@ -20,6 +20,7 @@ object Main {
 		createThumbnail("test/resources/test.pdf", "application/pdf")
 		createThumbnail("test/resources/test.png", "image/png")
 		createThumbnail("test/resources/test.txt", "text/plain")
+		createThumbnail("test/resources/test.jpg", "image/jpeg")
 	}
 
 	def createThumbnail(inputFile: String, contentType: String) {

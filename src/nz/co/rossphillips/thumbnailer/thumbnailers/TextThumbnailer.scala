@@ -14,7 +14,7 @@ import java.awt.RenderingHints
 
 class TextThumbnailer extends Thumbnailer {
 
-	val font = new Font("Verdana", Font.PLAIN, 9)
+	val font = new Font("Tahoma", Font.PLAIN, 9)
 
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val text = IOUtils.toString(input)

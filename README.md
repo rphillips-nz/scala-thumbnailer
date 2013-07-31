@@ -1,6 +1,8 @@
 Scala Thumbnailer
 =================
 
-Build: $ gradle distZip
+Build:
+ $ gradle distZip
 
-Run:   $ gradle run
+Run:
+ $ gradle run
