@@ -21,14 +21,7 @@ class ImageThumbnailer extends Thumbnailer {
 		ImageIO.write(padImage(resized), "PNG", output)
 	}
 
-	override def supportedContentTypes = Set(
-		"image/png",
-		"image/jpeg",
-		"image/gif",
-		"image/tiff",
-		"image/pjpeg",
-		"image/svg+xml"
-	)
+	override def supportedContentTypes = ImageIO.getReaderMIMETypes.toSet
 
 	private def padImage(image: BufferedImage) = {
 		val xOffset = (width - image.getWidth) / 2
