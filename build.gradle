@@ -2,8 +2,10 @@ apply plugin: 'scala'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
 apply plugin: 'application'
+apply plugin: 'signing'
 
 mainClassName = 'nz.co.rossphillips.thumbnailer.Main'
+group = 'nz.co.rossphillips'
 version = 0.1
 
 repositories {
@@ -21,12 +23,60 @@ dependencies {
 	)
 }
 
-jar {
-	manifest {
-		attributes(
-			'Implementation-Version': version,
-			'Main-Class': 'nz.co.rossphillips.thumbnailer.Main'
-		)
-	}
+
+
+task sourceJar(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
 }
 
+artifacts {
+	archives jar
+	archives sourceJar
+}
+
+signing {
+	sign configurations.archives
+}
+
+uploadArchives {
+	repositories {
+		mavenDeployer {
+			beforeDeployment {
+				MavenDeployment deployment -> signing.signPom(deployment)
+			}
+
+			repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+				authentication(userName: sonatypeUsername, password: sonatypePassword)
+			}
+
+			pom.project {
+				name 'scala-thumbnailer'
+				packaging 'jar'
+				description 'A Scala library that creates thumbnails from various file types'
+				url 'https://github.com/rphillips-nz/scala-thumbnailer'
+
+				scm {
+					url 'scm:git@github.com:rphillips-nz/scala-thumbnailer.git'
+					connection 'scm:git@github.com:rphillips-nz/scala-thumbnailer.git'
+					developerConnection 'scm:git@github.com:rphillips-nz/scala-thumbnailer.git'
+				}
+
+				licenses {
+					license {
+						name 'GNU Library General Public License (GPL), Version 2.0'
+						url 'http://www.gnu.org/licenses/gpl-2.0.txt'
+						distribution 'repo'
+					}
+				}
+
+				developers {
+					developer {
+						id 'rphillips'
+						name 'Ross Phillips'
+					}
+				}
+			}
+		}
+	}
+}
