@@ -6,7 +6,7 @@ import nz.co.rossphillips.thumbnailer.thumbnailers._
 
 class ThumbnailerManager {
 
-	var thumbnailers: Set[Thumbnailer] = Set.empty
+	private var thumbnailers: Set[Thumbnailer] = Set.empty
 	def addThumbnailer(thumbnailer: Thumbnailer) = thumbnailers = thumbnailers + thumbnailer
 
 	def supportedThumbnailer(contentType: String) = thumbnailers.find {

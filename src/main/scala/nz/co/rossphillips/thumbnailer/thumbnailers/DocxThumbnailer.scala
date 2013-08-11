@@ -12,7 +12,7 @@ import com.Ostermiller.util.CircularByteBuffer
 
 class DocxThumbnailer extends Thumbnailer {
 
-	val pdfThumbnailer = new PDFThumbnailer
+	private val pdfThumbnailer = new PDFThumbnailer
 
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val document = new XWPFDocument(input)
