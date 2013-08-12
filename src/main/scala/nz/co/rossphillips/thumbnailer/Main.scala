@@ -14,7 +14,7 @@ object Main {
 		thumbnailer.addThumbnailer(new PDFThumbnailer)
 		thumbnailer.addThumbnailer(new ImageThumbnailer)
 		thumbnailer.addThumbnailer(new TextThumbnailer)
-		thumbnailer.addThumbnailer(new DocxThumbnailer)
+		thumbnailer.addThumbnailer(new DOCXThumbnailer)
 
 		createThumbnail("src/main/resources/test.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
 		createThumbnail("src/main/resources/test.pdf", "application/pdf")

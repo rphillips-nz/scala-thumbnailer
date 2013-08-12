@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream
 import java.io.ByteArrayInputStream
 import com.Ostermiller.util.CircularByteBuffer
 
-class DocxThumbnailer extends Thumbnailer {
+class DOCXThumbnailer extends Thumbnailer {
 
 	private val pdfThumbnailer = new PDFThumbnailer
 
