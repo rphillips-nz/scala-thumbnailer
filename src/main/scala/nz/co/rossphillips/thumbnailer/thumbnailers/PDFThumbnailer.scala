@@ -1,21 +1,25 @@
 package nz.co.rossphillips.thumbnailer.thumbnailers
 
-import java.io.InputStream
-import java.io.OutputStream
-import org.apache.pdfbox.pdmodel.PDDocument
-import java.awt.image.BufferedImage
-import org.apache.pdfbox.pdmodel.PDPage
-import org.apache.pdfbox.pdmodel.common.PDRectangle
+import java.awt.Color
 import java.awt.Dimension
 import java.awt.Graphics2D
-import org.apache.pdfbox.pdfviewer.PageDrawer
+import java.awt.image.BufferedImage
 import java.awt.image.ImagingOpException
-import java.awt.Transparency
-import java.awt.Color
+import java.io.InputStream
+import java.io.OutputStream
+import org.apache.pdfbox.pdfviewer.PageDrawer
+import org.apache.pdfbox.pdmodel.PDDocument
+import org.apache.pdfbox.pdmodel.PDPage
+import org.apache.pdfbox.pdmodel.common.PDRectangle
 import javax.imageio.ImageIO
-import java.io.ByteArrayOutputStream
+import com.typesafe.scalalogging.slf4j.Logging
 
-class PDFThumbnailer extends Thumbnailer {
+/**
+ * Create thumbnails from Portable Document Format data.
+ *
+ * @author Ross Phillips
+ */
+class PDFThumbnailer extends Thumbnailer with Logging {
 
 	private val transparentWhite = new Color(255, 255, 255, 0)
 
@@ -24,25 +28,19 @@ class PDFThumbnailer extends Thumbnailer {
 		val bufferedImage = writeImageFirstPage(document, BufferedImage.TYPE_INT_RGB)
 		document.close
 
-		if (bufferedImage.getWidth == width) {
-			ImageIO.write(bufferedImage, "PNG", output)
-		} else {
-			// TODO - handle this shit (if needed???)
-			println("TODO - NEED TO IMPLEMENT THIS IN PDFThumbnailer")
-			throw new Exception("TODO - NEED TO IMPLEMENT THIS IN PDFThumbnailer")
-		}
+		ImageIO.write(bufferedImage, "PNG", output)
 	}
 
 	override def supportedContentTypes = Set("application/pdf")
 	
-	private def writeImageFirstPage(document: PDDocument, imageType: Int): BufferedImage = {
+	private def writeImageFirstPage(document: PDDocument, imageType: Int) = {
 		val pages = document.getDocumentCatalog.getAllPages
 		val page = pages.get(0).asInstanceOf[PDPage]
 
 		convertToImage(page, imageType, width, height)
 	}
 
-	private def convertToImage(page: PDPage, imageType: Int, thumbWidth: Int, thumbHeight: Int): BufferedImage = {
+	private def convertToImage(page: PDPage, imageType: Int, thumbWidth: Int, thumbHeight: Int) = {
 		val mBox = page.findMediaBox.asInstanceOf[PDRectangle]
 
 		val widthPt = mBox.getWidth
@@ -76,9 +74,9 @@ class PDFThumbnailer extends Thumbnailer {
 				g.drawImage(retval, null, 0, 0)
 			}
 		} catch { case e: ImagingOpException =>
-			// TODO - handle this shit
-			//log.warn("Unable to rotate page image", e);
-		} 
+			logger.warn("Unable to rotate page image", e)
+		}
+
 		retval
 	}
 

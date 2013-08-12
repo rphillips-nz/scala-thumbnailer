@@ -1,22 +1,16 @@
 Scala Thumbnailer
 =================
 
-Build
-------
-$ gradle distZip
+A library for generating thumbnails from various file types.
 
-Run
----
-$ gradle run
+Originally inspired by [java-thumbnailer](https://github.com/benjaminpick/java-thumbnailer).
 
-Publishing:
------------
-$ gradle uploadArchives
+- - -
 
-### Requires a properties file in your .gradle folder
-> signing.keyId=
-> signing.password=
-> signing.secretKeyRingFile=
->
-> sonatypeUsername=
-> sonatypePassword=
+Run test main class
+
+	sbt run
+
+Set up for Eclipse
+
+	sbt eclipse

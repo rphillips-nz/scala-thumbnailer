@@ -1,13 +1,20 @@
 package nz.co.rossphillips.thumbnailer.thumbnailers
 
+import java.awt.Color
+import java.awt.image.BufferedImage
 import java.io.InputStream
 import java.io.OutputStream
-import org.imgscalr.Scalr._
-import java.awt.image.BufferedImage
+import org.imgscalr.Scalr.Method
+import org.imgscalr.Scalr.resize
 import javax.imageio.ImageIO
-import java.io.ByteArrayOutputStream
-import java.awt.Color
 
+/**
+ * Creates thumbnails from most image files.
+ * Will fit entire image in width and height, padding with white to keep ratio.
+ * TIFF not supported.
+ *
+ * @author Ross Phillips
+ */
 class ImageThumbnailer extends Thumbnailer {
 
 	override def generateThumbnail(input: InputStream, output: OutputStream) {

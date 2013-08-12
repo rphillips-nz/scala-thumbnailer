@@ -1,18 +1,21 @@
 package nz.co.rossphillips.thumbnailer.thumbnailers
 
-import java.io.InputStream
-import java.io.OutputStream
+import java.awt.Color
 import java.awt.Font
+import java.awt.Graphics2D
 import java.awt.font.FontRenderContext
 import java.awt.image.BufferedImage
-import java.awt.Color
-import javax.imageio.ImageIO
-import java.io.ByteArrayOutputStream
+import java.io.InputStream
+import java.io.OutputStream
 import org.apache.commons.io.IOUtils
-import java.awt.Graphics2D
-import java.awt.RenderingHints
-import org.imgscalr.Scalr._
+import org.imgscalr.Scalr.pad
+import javax.imageio.ImageIO
 
+/**
+ * Creates thumbnails from text.
+ *
+ * @author Ross Phillips
+ */
 class TextThumbnailer extends Thumbnailer {
 
 	private val background = Color.WHITE
