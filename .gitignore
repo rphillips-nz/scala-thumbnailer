@@ -1,12 +1,9 @@
 .DS_Store
 .settings
 .classpath
-.gradle
 .project
 .cache
-/build
-/bin
 /output
 /target
-/project
+/project/target
 
