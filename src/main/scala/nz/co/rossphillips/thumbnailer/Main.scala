@@ -1,21 +1,24 @@
 package nz.co.rossphillips.thumbnailer
 
-import nz.co.rossphillips.thumbnailer.thumbnailers._
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.util.Date
 
-
+/**
+ * Creates a few test thumbnails.
+ *
+ * @author Ross Phillips
+ */
 object Main {
 
-	val thumbnailer = new ThumbnailerManager
+	val thumbnailer = new Thumbnailer
 
+	/**
+	 * Creates the test thumbnails.
+	 *
+	 * @param args command line arguments
+	 */
 	def main(args: Array[String]) {
-		thumbnailer.addThumbnailer(new PDFThumbnailer)
-		thumbnailer.addThumbnailer(new ImageThumbnailer)
-		thumbnailer.addThumbnailer(new TextThumbnailer)
-		thumbnailer.addThumbnailer(new DOCXThumbnailer)
-
 		createThumbnail("src/main/resources/test.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
 		createThumbnail("src/main/resources/test.pdf", "application/pdf")
 		createThumbnail("src/main/resources/test.png", "image/png")
@@ -23,6 +26,12 @@ object Main {
 		createThumbnail("src/main/resources/test.jpg", "image/jpeg")
 	}
 
+	/**
+	 * Opens a test file and writes to a test file.
+	 *
+	 * @param inputFile the file to create a thumbnail from
+	 * @param contentType the content type of inputFile
+	 */
 	def createThumbnail(inputFile: String, contentType: String) {
 		val start = new Date
 

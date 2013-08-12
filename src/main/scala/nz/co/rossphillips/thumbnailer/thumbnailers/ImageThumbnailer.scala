@@ -15,7 +15,7 @@ import javax.imageio.ImageIO
  *
  * @author Ross Phillips
  */
-class ImageThumbnailer extends Thumbnailer {
+class ImageThumbnailer extends BaseThumbnailer {
 
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val image = ImageIO.read(input)

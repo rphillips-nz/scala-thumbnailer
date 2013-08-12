@@ -13,7 +13,7 @@ import com.Ostermiller.util.CircularByteBuffer
  *
  * @author Ross Phillips
  */
-class DOCXThumbnailer extends Thumbnailer {
+class DOCXThumbnailer extends BaseThumbnailer {
 
 	private val pdfThumbnailer = new PDFThumbnailer
 

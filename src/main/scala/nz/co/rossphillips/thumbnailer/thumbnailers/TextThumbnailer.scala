@@ -16,7 +16,7 @@ import javax.imageio.ImageIO
  *
  * @author Ross Phillips
  */
-class TextThumbnailer extends Thumbnailer {
+class TextThumbnailer extends BaseThumbnailer {
 
 	private val background = Color.WHITE
 	private val font = new Font("Tahoma", Font.PLAIN, 10)

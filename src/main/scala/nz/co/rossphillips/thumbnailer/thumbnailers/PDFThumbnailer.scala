@@ -19,7 +19,7 @@ import com.typesafe.scalalogging.slf4j.Logging
  *
  * @author Ross Phillips
  */
-class PDFThumbnailer extends Thumbnailer with Logging {
+class PDFThumbnailer extends BaseThumbnailer with Logging {
 
 	private val transparentWhite = new Color(255, 255, 255, 0)
 

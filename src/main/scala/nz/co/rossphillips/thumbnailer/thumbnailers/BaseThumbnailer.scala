@@ -9,7 +9,7 @@ import java.io.OutputStream
  *
  * @author Ross Phillips
  */
-trait Thumbnailer {
+trait BaseThumbnailer {
 	protected var width = 160
 	protected var height = 200
 
