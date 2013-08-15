@@ -1,20 +1,12 @@
 package nz.co.rossphillips.thumbnailer.thumbnailers
 
-import java.awt.Color
-import java.awt.Dimension
-import java.awt.Graphics2D
-import java.awt.image.BufferedImage
-import java.awt.image.ImagingOpException
 import java.io.InputStream
 import java.io.OutputStream
-import org.apache.pdfbox.pdfviewer.PageDrawer
+import javax.imageio.ImageIO
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.apache.pdfbox.pdmodel.PDPage
-import org.apache.pdfbox.pdmodel.common.PDRectangle
-import javax.imageio.ImageIO
-import org.imgscalr.Scalr._
+import scala.collection.JavaConversions.asScalaBuffer
 import nz.co.rossphillips.thumbnailer.Util
-import scala.collection.JavaConversions._
 
 /**
  * Create thumbnails from Portable Document Format data.
