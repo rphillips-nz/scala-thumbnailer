@@ -33,7 +33,6 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 	 * Adds a thumbnailer to the pool of available thumbanilers.
 	 * Doesn't check for duplicates or multiple thumbnailers supporting the same
 	 * content type.
-	 * Writes the output in PNG format.
 	 *
 	 * @param thumbnailer the thumbnailer to add
 	 */
@@ -58,6 +57,7 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 
 	/**
 	 * Returns a generated thumbnail image from input.
+	 * Returns the output in PNG format.
 	 *
 	 * @param input the stream of input data
 	 * @param contentType the content type of input
