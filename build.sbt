@@ -54,3 +54,11 @@ publishTo <<= version { (v: String) =>
 	else
 		Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
+
+mappings in (Compile, packageBin) ~= { (ms: Seq[(File, String)]) =>
+	ms filter { case (file, toPath) =>
+		toPath != "nz/co/rossphillips/thumbnailer/Main.class" &&
+		toPath != "nz/co/rossphillips/thumbnailer/Main$.class"
+	}
+}
+

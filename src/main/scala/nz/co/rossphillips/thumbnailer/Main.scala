@@ -19,11 +19,11 @@ object Main {
 	 * @param args command line arguments
 	 */
 	def main(args: Array[String]) {
-		createThumbnail("src/main/resources/test.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
-		createThumbnail("src/main/resources/test.pdf", "application/pdf")
-		createThumbnail("src/main/resources/test.png", "image/png")
-		createThumbnail("src/main/resources/test.txt", "text/plain")
-		createThumbnail("src/main/resources/test.jpg", "image/jpeg")
+		createThumbnail("src/test/resources/test.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+		createThumbnail("src/test/resources/test.pdf", "application/pdf")
+		createThumbnail("src/test/resources/test.png", "image/png")
+		createThumbnail("src/test/resources/test.txt", "text/plain")
+		createThumbnail("src/test/resources/test.jpg", "image/jpeg")
 	}
 
 	/**
