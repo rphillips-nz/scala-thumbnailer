@@ -1,5 +1,4 @@
-Scala Thumbnailer
-=================
+# Scala Thumbnailer
 
 A library for generating thumbnails from various file types.
 The API uses streams rather than files.
