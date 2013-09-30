@@ -19,7 +19,7 @@ class ImageThumbnailer extends BaseThumbnailer {
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val image = ImageIO.read(input)
 
-		ImageIO.write(Util.paddedResize(image, width, height), "PNG", output)
+		ImageIO.write(Util.resize(image, width, height, shouldPadThumbnail), "PNG", output)
 	}
 
 	override def supportedContentTypes = ImageIO.getReaderMIMETypes.toSet

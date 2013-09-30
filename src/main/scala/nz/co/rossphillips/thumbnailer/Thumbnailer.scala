@@ -13,7 +13,7 @@ import nz.co.rossphillips.thumbnailer.thumbnailers.TextThumbnailer
  *
  * @author Ross Phillips
  *
- * @constructor Construct a thumbnailer that delegates to thumbnailers
+ * @constructor Construct a thumbnailer that delegates to other thumbnailers
  */
 class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 
@@ -30,7 +30,7 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 	private var delegateThumbnailers: Set[BaseThumbnailer] = Set.empty
 	
 	/**
-	 * Adds a thumbnailer to the pool of available thumbanilers.
+	 * Adds a thumbnailer to the pool of available thumbnailers.
 	 * Doesn't check for duplicates or multiple thumbnailers supporting the same
 	 * content type.
 	 *
@@ -69,6 +69,26 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 			case Some(thumbnailer) => thumbnailer.generateThumbnail(input)
 			case None => throw new Exception(s"No supported thumbnailer found for $contentType")
 		}
+	}
+
+	/**
+	 * Sets the size of the generated thumbnail.
+	 *
+	 * @param width the width of the thumbnail
+	 * @param height the height of the thumbnail
+	 */
+	def setSize(width: Int, height: Int) = delegateThumbnailers.foreach {
+		_.setSize(width, height)
+	}
+
+	/**
+	 * Sets whether or not the generated thumbnail should be padded to the
+	 * thumbnail size.
+	 *
+	 * @param shouldPadThumbnail whether or not the thumbnail should be padded
+	 */
+	def setShouldPadThumbnail(shouldPadThumbnail: Boolean) = delegateThumbnailers.foreach {
+		_.shouldPadThumbnail = shouldPadThumbnail
 	}
 
 	private def supportedThumbnailer(contentType: String) = thumbnailers.find {

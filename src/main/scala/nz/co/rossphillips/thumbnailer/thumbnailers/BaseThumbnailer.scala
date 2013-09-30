@@ -13,6 +13,8 @@ trait BaseThumbnailer {
 	protected var width = 160
 	protected var height = 200
 
+	var shouldPadThumbnail = true
+
 	/**
 	 * Generates a thumbnail image from input and writes it to output.
 	 *

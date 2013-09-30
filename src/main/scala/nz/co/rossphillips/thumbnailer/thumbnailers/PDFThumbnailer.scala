@@ -17,11 +17,11 @@ class PDFThumbnailer extends BaseThumbnailer {
 
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val document = PDDocument.load(input)
-		val page = document.getDocumentCatalog.getAllPages.head.asInstanceOf[PDPage]
-		val bufferedImage = Util.paddedResize(page.convertToImage, width, height)
+		val image = document.getDocumentCatalog.getAllPages.head.asInstanceOf[PDPage].convertToImage
+		val resized = Util.resize(image, width, height, shouldPadThumbnail)
 		document.close
 
-		ImageIO.write(bufferedImage, "PNG", output)
+		ImageIO.write(resized, "PNG", output)
 	}
 
 	override def supportedContentTypes = Set("application/pdf")

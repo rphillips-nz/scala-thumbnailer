@@ -24,8 +24,7 @@ class TextThumbnailer extends BaseThumbnailer {
 
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val text = IOUtils.toString(input)
-		val frc = new FontRenderContext(null, true, true)
-		val bounds = font.getStringBounds(text, frc)
+		val bounds = font.getStringBounds(text, new FontRenderContext(null, true, true))
 		val image = new BufferedImage(width - padding, height - padding, BufferedImage.TYPE_INT_RGB)
 
 		val g = image.createGraphics
