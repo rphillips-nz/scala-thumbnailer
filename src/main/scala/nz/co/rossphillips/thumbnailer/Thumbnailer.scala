@@ -27,19 +27,6 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 		new DOCXThumbnailer
 	)
 
-	private var delegateThumbnailers: Set[BaseThumbnailer] = Set.empty
-	
-	/**
-	 * Adds a thumbnailer to the pool of available thumbnailers.
-	 * Doesn't check for duplicates or multiple thumbnailers supporting the same
-	 * content type.
-	 *
-	 * @param thumbnailer the thumbnailer to add
-	 */
-	def addThumbnailer(thumbnailer: BaseThumbnailer) {
-		delegateThumbnailers += thumbnailer
-	}
-
 	/**
 	 * Generates a thumbnail image from input and writes it to output.
 	 * Writes the output in PNG format.
@@ -51,7 +38,7 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 	def generateThumbnail(input: InputStream, output: OutputStream, contentType: String) {
 		supportedThumbnailer(contentType) match {
 			case Some(thumbnailer) => thumbnailer.generateThumbnail(input, output)
-			case None => throw new Exception(s"No supported thumbnailer found for $contentType")
+			case None => throw new UnsupportedOperationException(s"No supported thumbnailer found for $contentType")
 		}
 	}
 
@@ -67,7 +54,7 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 	def generateThumbnail(input: InputStream, contentType: String) = {
 		supportedThumbnailer(contentType) match {
 			case Some(thumbnailer) => thumbnailer.generateThumbnail(input)
-			case None => throw new Exception(s"No supported thumbnailer found for $contentType")
+			case None => throw new UnsupportedOperationException(s"No supported thumbnailer found for $contentType")
 		}
 	}
 
@@ -77,7 +64,7 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 	 * @param width the width of the thumbnail
 	 * @param height the height of the thumbnail
 	 */
-	def setSize(width: Int, height: Int) = delegateThumbnailers.foreach {
+	def setSize(width: Int, height: Int) = thumbnailers.foreach {
 		_.setSize(width, height)
 	}
 
@@ -87,8 +74,8 @@ class Thumbnailer(thumbnailers: BaseThumbnailer *) {
 	 *
 	 * @param shouldPadThumbnail whether or not the thumbnail should be padded
 	 */
-	def setShouldPadThumbnail(shouldPadThumbnail: Boolean) = delegateThumbnailers.foreach {
-		_.shouldPadThumbnail = shouldPadThumbnail
+	def setShouldPadThumbnail(shouldPadThumbnail: Boolean) = thumbnailers.foreach {
+		_.setShouldPadThumbnail(shouldPadThumbnail)
 	}
 
 	private def supportedThumbnailer(contentType: String) = thumbnailers.find {

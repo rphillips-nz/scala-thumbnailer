@@ -37,8 +37,18 @@ class DOCXThumbnailer extends BaseThumbnailer {
 		}
 	}
 
-	override def supportedContentTypes = Set(
+	override val supportedContentTypes = Set(
 		"application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 	)
+
+	override def setSize(width: Int, height: Int) {
+		super.setSize(width, height)
+		pdfThumbnailer.setSize(width, height)
+	}
+
+	override def setShouldPadThumbnail(shouldPadThumbnail: Boolean) {
+		super.setShouldPadThumbnail(shouldPadThumbnail)
+		pdfThumbnailer.setShouldPadThumbnail(shouldPadThumbnail)
+	}
 
 }

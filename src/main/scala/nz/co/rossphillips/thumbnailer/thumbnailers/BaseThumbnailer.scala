@@ -12,8 +12,7 @@ import java.io.OutputStream
 trait BaseThumbnailer {
 	protected var width = 160
 	protected var height = 200
-
-	var shouldPadThumbnail = true
+	protected var shouldPadThumbnail = true
 
 	/**
 	 * Generates a thumbnail image from input and writes it to output.
@@ -56,6 +55,16 @@ trait BaseThumbnailer {
 	def setSize(width: Int, height: Int) {
 		this.width = width
 		this.height = height
+	}
+
+	/**
+	 * Sets whether or not the generated thumbnail should be padded to the
+	 * thumbnail size.
+	 *
+	 * @param shouldPadThumbnail whether or not the thumbnail should be padded
+	 */
+	def setShouldPadThumbnail(shouldPadThumbnail: Boolean) {
+		this.shouldPadThumbnail = shouldPadThumbnail
 	}
 
 }

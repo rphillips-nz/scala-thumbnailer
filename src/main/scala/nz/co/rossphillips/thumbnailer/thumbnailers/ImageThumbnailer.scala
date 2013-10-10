@@ -22,6 +22,6 @@ class ImageThumbnailer extends BaseThumbnailer {
 		ImageIO.write(Util.resize(image, width, height, shouldPadThumbnail), "PNG", output)
 	}
 
-	override def supportedContentTypes = ImageIO.getReaderMIMETypes.toSet
+	override val supportedContentTypes = ImageIO.getReaderMIMETypes.toSet
 
 }

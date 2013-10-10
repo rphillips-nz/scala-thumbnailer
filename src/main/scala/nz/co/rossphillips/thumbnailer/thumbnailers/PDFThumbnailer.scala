@@ -24,6 +24,6 @@ class PDFThumbnailer extends BaseThumbnailer {
 		ImageIO.write(resized, "PNG", output)
 	}
 
-	override def supportedContentTypes = Set("application/pdf")
+	override val supportedContentTypes = Set("application/pdf")
 
 }

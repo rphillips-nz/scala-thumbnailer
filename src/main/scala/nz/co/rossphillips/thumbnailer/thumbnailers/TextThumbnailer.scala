@@ -19,7 +19,7 @@ import javax.imageio.ImageIO
 class TextThumbnailer extends BaseThumbnailer {
 
 	private val background = Color.WHITE
-	private val font = new Font("Tahoma", Font.PLAIN, 10)
+	private val font = new Font("Tahoma", Font.PLAIN, 5)
 	private val padding = 4
 
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
@@ -39,7 +39,7 @@ class TextThumbnailer extends BaseThumbnailer {
 		ImageIO.write(pad(image, padding / 2, background), "PNG", output)
 	}
 
-	override def supportedContentTypes = Set(
+	override val supportedContentTypes = Set(
 		"text/plain",
 		"text/cmd",
 		"text/css",
