@@ -6,7 +6,7 @@ organization := "nz.co.rossphillips"
 
 name := "scala-thumbnailer"
 
-version := "0.2"
+version := "0.4.0"
 
 scalaVersion := "2.10.2"
 
