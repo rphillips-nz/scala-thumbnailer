@@ -14,14 +14,14 @@ The API uses streams rather than files.
 
 **SBT**
 
-	libraryDependencies += "nz.co.rossphillips" % "scala-thumbnailer" % "0.2"
+	libraryDependencies += "nz.co.rossphillips" % "scala-thumbnailer" % "0.4.0"
 
 **Maven**
 
 	<dependency>
 		<groupId>nz.co.rossphillips</groupId>
 		<artifactId>scala-thumbnailer</artifactId>
-		<version>0.2</version>
+		<version>0.4.0</version>
 	</dependency>
 
 - - -
@@ -29,3 +29,4 @@ The API uses streams rather than files.
 GPL v2.0
 
 Originally inspired by [java-thumbnailer](https://github.com/benjaminpick/java-thumbnailer).
+
