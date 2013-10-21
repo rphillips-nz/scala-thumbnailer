@@ -529,8 +529,8 @@ table {
 }
 
 body {
-  padding: 0px 0 20px 0px;
-  margin: 0px;
+  padding: 0 0 20px 0;
+  margin: 0;
   font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #f0e7d5;
   font-weight: normal;
@@ -546,13 +546,13 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: #e8e8e8;
-  margin: 0 0 10px;
+  margin: 0 0 10px 0;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
 
 p, ul, ol, table, pre, dl {
-  margin: 0 0 20px;
+  margin: 0 0 20px 0;
 }
 
 h1, h2, h3 {
@@ -564,7 +564,10 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  border-top: 1px solid #333;
+  padding-top: 20px;
 }
 
 h4, h5, h6 {
@@ -572,9 +575,9 @@ h4, h5, h6 {
 }
 
 h3 {
-  font-size: 18px;
-  line-height: 24px;
-  font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: 14px;
+  /*line-height: 24px;*/
+  font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: normal;
   color: #b6b6b6;
 }
@@ -655,7 +658,7 @@ pre {
 }
 pre code {
   color: #efefef;
-  text-shadow: 0px 1px 0px #000;
+  text-shadow: 0 1px 0 #000;
   margin: 0;
   padding: 0;
 }
@@ -697,16 +700,16 @@ dt {
 #header {
   z-index: 100;
   left: 0;
-  top: 0px;
+  top: 0;
   height: 60px;
   width: 100%;
   position: fixed;
   background: url(../images/nav-bg.gif) #353535;
   border-bottom: 4px solid #434343;
-  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-  -o-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 #header nav {
   max-width: 650px;
@@ -722,7 +725,7 @@ dt {
   display: inline;
   color: white;
   line-height: 50px;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   font-size: 14px;
 }
 #header nav li a {
@@ -740,10 +743,10 @@ dt {
   -ms-border-radius: 2px;
   -khtml-border-radius: 2px;
   border-radius: 2px;
-  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
-  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
-  -o-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 7px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 7px rgba(0, 0, 0, 0.7);
+  -o-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 7px rgba(0, 0, 0, 0.7);
   background-color: #93bd20;
   padding: 10px 12px;
   margin-top: 6px;
@@ -761,14 +764,14 @@ dt {
   background: linear-gradient(#749619, #527f0e);
   background-color: #659e10;
   border: 1px solid #527f0e;
-  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
-  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
-  -o-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
-  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0);
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0);
 }
 #header nav li.fork {
   float: left;
-  margin-left: 0px;
+  margin-left: 0;
 }
 #header nav li.downloads {
   float: right;
@@ -782,14 +785,14 @@ dt {
 
 section {
   max-width: 650px;
-  padding: 30px 0px 50px 0px;
+  padding: 30px 0 50px 0;
   margin: 20px 0;
   margin-top: 70px;
 }
 section #title {
   border: 0;
   outline: none;
-  margin: 0 0 50px 0;
+  margin: 0;
   padding: 0 0 5px 0;
 }
 section #title h1 {
@@ -806,32 +809,32 @@ section #title p {
   font-size: 18px;
   text-align: center;
 }
-section #title .credits {
+section .credits {
   font-size: 11px;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #696969;
   margin-top: -10px;
 }
-section #title .credits.left {
+section .credits.left {
   float: left;
 }
-section #title .credits.right {
+section .credits.right {
   float: right;
 }
 
 @media print, screen and (max-width: 720px) {
-  #title .credits {
+  .credits {
     display: block;
     width: 100%;
     line-height: 30px;
     text-align: center;
   }
-  #title .credits .left {
+  .credits .left {
     float: none;
     display: block;
   }
-  #title .credits .right {
+  .credits .right {
     float: none;
     display: block;
   }
