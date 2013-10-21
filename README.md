@@ -1,7 +1,5 @@
 # Scala Thumbnailer
-A Scala library for generating thumbnails
-
-- - -
+A Scala library for generating thumbnails.
 
 The API uses streams rather than files. Supports the following file types:
 
@@ -12,16 +10,15 @@ The API uses streams rather than files. Supports the following file types:
 
 GPL v2.0
 
-- - -
 
 ## Usage
 
-** Create **
+**Create**
 
 	val defaultThumbnailer = new Thumbnailer
 	val thumbnailer = new Thumbnailer(new PDFThumbnailer, new TextThumbnailer)
 
-** Output to stream **
+**Output to stream**
 
 	val thumbnailer = new Thumbnailer
 	val input = new FileInputStream("input.pdf")
@@ -32,7 +29,7 @@ GPL v2.0
 	output.close
 	input.close
 
-** Output to byte array **
+**Output to byte array**
 
 	val thumbnailer = new Thumbnailer
 	val input = new FileInputStream("input.pdf")
@@ -41,13 +38,12 @@ GPL v2.0
 
 	input.close
 
-** Options **
+**Options**
 
 	val thumbnailer = new Thumbnailer
 	thumbnailer.setSize(100, 200)
 	thumbnailer.setShouldPadThumbnail(false)
 
-- - -
 
 ## Dependency Management
 
