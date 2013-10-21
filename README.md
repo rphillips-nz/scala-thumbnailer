@@ -1,4 +1,5 @@
-# Scala Thumbnailer
+# [scala-thumbnailer](http://rphillips-nz.github.io/scala-thumbnailer/)
+
 A Scala library for generating thumbnails.
 
 The API uses streams rather than files. Supports the following file types:
@@ -60,5 +61,7 @@ GPL v2.0
 	</dependency>
 
 - - -
+
+[Homepage](http://rphillips-nz.github.io/scala-thumbnailer/)
 
 Originally inspired by [java-thumbnailer](https://github.com/benjaminpick/java-thumbnailer).
