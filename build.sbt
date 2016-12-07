@@ -28,6 +28,10 @@ libraryDependencies ++= Seq(
 
 seq(bintraySettings:_*)
 
+licenses := Seq("GPL-2.0" -> url("http://www.gnu.org/licenses/gpl-2.0.txt"))
+
+homepage := Some(url("https://github.com/rphillips-nz/scala-thumbnailer"))
+
 mappings in (Compile, packageBin) ~= { (ms: Seq[(File, String)]) =>
 	ms filter { case (file, toPath) =>
 		toPath != "nz/co/rossphillips/thumbnailer/Main.class" &&
