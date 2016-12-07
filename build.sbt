@@ -24,6 +24,8 @@ libraryDependencies ++= Seq(
 // Publishing                                                                \\
 // ------------------------------------------------------------------------- \\
 
+publishArtifact in (Compile, packageDoc) := false
+
 seq(bintraySettings:_*)
 
 licenses += ("GPL-2.0", url("http://www.gnu.org/licenses/gpl-2.0.txt"))
