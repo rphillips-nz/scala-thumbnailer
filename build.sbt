@@ -6,8 +6,6 @@ organization := "nz.co.rossphillips"
 
 name := "scala-thumbnailer"
 
-version := "0.4.0"
-
 // If the CI supplies a "build.version" environment variable, inject it as the rev part of the version number:
 version := s"${sys.props.getOrElse("build.majorMinor", "0.5")}.${sys.props.getOrElse("build.version", "SNAPSHOT")}"
 
@@ -28,7 +26,7 @@ libraryDependencies ++= Seq(
 
 seq(bintraySettings:_*)
 
-licenses := Seq("GPL-2.0" -> url("http://www.gnu.org/licenses/gpl-2.0.txt"))
+licenses += ("GPL-2.0", url("http://www.gnu.org/licenses/gpl-2.0.txt"))
 
 homepage := Some(url("https://github.com/rphillips-nz/scala-thumbnailer"))
 
