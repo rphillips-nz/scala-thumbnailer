@@ -11,6 +11,13 @@ The API uses streams rather than files. Supports the following file types:
 
 GPL v2.0
 
+### This fork exists to update the following versions:
+- Scala - v2.11 family
+- Apache PDFBox library dependency to the `2.x` family
+- Typesafe Scala Logging to the `3.5.x` family
+
+No other code has changed.
+
 
 ## Usage
 

@@ -3,10 +3,11 @@ package nz.co.rossphillips.thumbnailer.thumbnailers
 import java.io.InputStream
 import java.io.OutputStream
 import javax.imageio.ImageIO
+
 import org.apache.pdfbox.pdmodel.PDDocument
-import org.apache.pdfbox.pdmodel.PDPage
-import scala.collection.JavaConversions.asScalaBuffer
 import nz.co.rossphillips.thumbnailer.Util
+
+import org.apache.pdfbox.rendering.{PDFRenderer}
 
 /**
  * Create thumbnails from Portable Document Format data.
@@ -15,9 +16,11 @@ import nz.co.rossphillips.thumbnailer.Util
  */
 class PDFThumbnailer extends BaseThumbnailer {
 
+
 	override def generateThumbnail(input: InputStream, output: OutputStream) {
 		val document = PDDocument.load(input)
-		val image = document.getDocumentCatalog.getAllPages.head.asInstanceOf[PDPage].convertToImage
+		val pdfRenderer = new PDFRenderer(document)
+		val image = pdfRenderer.renderImage(0)
 		val resized = Util.resize(image, width, height, shouldPadThumbnail)
 		document.close
 

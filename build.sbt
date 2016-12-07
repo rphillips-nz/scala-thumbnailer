@@ -8,15 +8,15 @@ name := "scala-thumbnailer"
 
 version := "0.4.0"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.11.7"
 
 libraryDependencies ++= Seq(
-	"org.apache.pdfbox" % "pdfbox" % "1.8.2",
+	"org.apache.pdfbox" % "pdfbox" % "2.0.3",
 	"org.imgscalr" % "imgscalr-lib" % "4.2",
 	"commons-io" % "commons-io" % "2.4",
 	"org.ostermiller" % "utils" % "1.07.00",
 	"fr.opensagres.xdocreport" % "org.apache.poi.xwpf.converter.pdf" % "1.0.2",
-	"com.typesafe" %% "scalalogging-slf4j" % "1.0.1"
+	"com.typesafe.scala-logging" %% "scala-logging" % "3.5.0"
 )
 
 // ------------------------------------------------------------------------- \\
