@@ -9,7 +9,7 @@ name := "scala-thumbnailer"
 // If the CI supplies a "build.version" environment variable, inject it as the rev part of the version number:
 version := s"${sys.props.getOrElse("build.majorMinor", "0.5")}.${sys.props.getOrElse("build.version", "SNAPSHOT")}"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.12.5"
 
 libraryDependencies ++= Seq(
 	"org.apache.pdfbox" % "pdfbox" % "2.0.3",
