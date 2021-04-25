@@ -2,12 +2,10 @@
 // SBT Build File                                                            \\
 // ------------------------------------------------------------------------- \\
 
-organization := "nz.co.rossphillips"
+
+organization := "ch.wavein"
 
 name := "scala-thumbnailer"
-
-// If the CI supplies a "build.version" environment variable, inject it as the rev part of the version number:
-version := s"${sys.props.getOrElse("build.majorMinor", "0.5")}.${sys.props.getOrElse("build.version", "SNAPSHOT")}"
 
 scalaVersion := "2.12.5"
 
