@@ -2,14 +2,17 @@
 // SBT Build File                                                            \\
 // ------------------------------------------------------------------------- \\
 
-organization := "nz.co.rossphillips"
+
+organization := "ch.wavein"
 
 name := "scala-thumbnailer"
 
-// If the CI supplies a "build.version" environment variable, inject it as the rev part of the version number:
-version := s"${sys.props.getOrElse("build.majorMinor", "0.5")}.${sys.props.getOrElse("build.version", "SNAPSHOT")}"
+developers := List(
+	Developer(id="minettiandrea", name="Andrea Minetti", email="andrea@wavein.ch", url=url("https://wavein.ch")),
+	Developer(id="rphillips-nz", name="Ross Phillips",email="",url=url("https://rossphillips.nz"))
+)
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.12.5"
 
 libraryDependencies ++= Seq(
 	"org.apache.pdfbox" % "pdfbox" % "2.0.3",
@@ -31,10 +34,4 @@ licenses += ("GPL-2.0", url("http://www.gnu.org/licenses/gpl-2.0.txt"))
 
 homepage := Some(url("https://github.com/rphillips-nz/scala-thumbnailer"))
 
-mappings in (Compile, packageBin) ~= { (ms: Seq[(File, String)]) =>
-	ms filter { case (file, toPath) =>
-		toPath != "nz/co/rossphillips/thumbnailer/Main.class" &&
-		toPath != "nz/co/rossphillips/thumbnailer/Main$.class"
-	}
-}
-
+publishArtifact in (Compile, packageDoc) := true
