@@ -3,12 +3,13 @@
 // ------------------------------------------------------------------------- \\
 
 
-organization := "ch.wavein"
+organization := "com.themillhousegroup"
 
 name := "scala-thumbnailer"
 
 developers := List(
 	Developer(id="minettiandrea", name="Andrea Minetti", email="andrea@wavein.ch", url=url("https://wavein.ch")),
+	Developer(id="themillhousegroup", name="John Marshall", email="john@themillhousegroup.com", url=url("http://www.themillhousegroup.com")),
 	Developer(id="rphillips-nz", name="Ross Phillips",email="",url=url("https://rossphillips.nz"))
 )
 
@@ -32,6 +33,6 @@ publishArtifact in (Compile, packageDoc) := false
 
 licenses += ("GPL-2.0", url("http://www.gnu.org/licenses/gpl-2.0.txt"))
 
-homepage := Some(url("https://github.com/rphillips-nz/scala-thumbnailer"))
+homepage := Some(url("https://github.com/themillhousegroup/scala-thumbnailer"))
 
 publishArtifact in (Compile, packageDoc) := true
