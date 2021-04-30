@@ -36,3 +36,6 @@ licenses += ("GPL-2.0", url("http://www.gnu.org/licenses/gpl-2.0.txt"))
 homepage := Some(url("https://github.com/themillhousegroup/scala-thumbnailer"))
 
 publishArtifact in (Compile, packageDoc) := true
+
+// For all Sonatype accounts created on or after February 2021
+ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
